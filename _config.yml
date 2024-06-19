@@ -5,7 +5,7 @@ title: Schiphol Flight Emission
 author: Casper Sikkema, Joshua, Appiah, Mohammed Khalifa
 copyright: "2024"
 html:
-  favicon: static/images/favicon.ico
+  favicon: static/images/icon.ico
   use_repository_button: true
 
 # Force re-execution of notebooks on each build.
