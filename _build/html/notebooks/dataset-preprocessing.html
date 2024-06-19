@@ -61,7 +61,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Dit is een test" href="../docs/notebook.html" />
+    <link rel="next" title="Reflection" href="../docs/reflection.html" />
     <link rel="prev" title="Introduction" href="../docs/introduction.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -174,6 +174,8 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Dataset and Preprocessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/reflection.html">Reflection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/work-distribution.html">Work Distribution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../docs/notebook.html">Dit is een test</a></li>
 
 
@@ -1428,7 +1430,7 @@ are the variables in there) and also explain how you preprocess the data.</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the cleaned Schiphol Emissie dataset</span>
 
-<span class="n">df_emission</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;Schiphol_Emissie_Cleaned.csv&quot;</span><span class="p">)</span>
+<span class="n">df_emission</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../notebooks/cache/Schiphol_Emissie_Cleaned.csv&quot;</span><span class="p">)</span>
 <span class="n">df_emission</span>
 
 <span class="c1"># https://www.emissieregistratie.nl/data/vliegvelden</span>
@@ -1436,73 +1438,184 @@ are the variables in there) and also explain how you preprocess the data.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Load the cleaned Schiphol Emissie dataset</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">df_emission</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;Schiphol_Emissie_Cleaned.csv&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">df_emission</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1"># https://www.emissieregistratie.nl/data/vliegvelden</span>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="nn">File ~/anaconda3/envs/jupyterbook/lib/python3.10/site-packages/pandas/io/parsers/readers.py:1026,</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, date_format, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options, dtype_backend)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1013</span> <span class="n">kwds_defaults</span> <span class="o">=</span> <span class="n">_refine_defaults_read</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1014</span>     <span class="n">dialect</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1015</span>     <span class="n">delimiter</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1022</span>     <span class="n">dtype_backend</span><span class="o">=</span><span class="n">dtype_backend</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1023</span> <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1024</span> <span class="n">kwds</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwds_defaults</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1026</span> <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
-<span class="nn">File ~/anaconda3/envs/jupyterbook/lib/python3.10/site-packages/pandas/io/parsers/readers.py:620,</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">617</span> <span class="n">_validate_names</span><span class="p">(</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;names&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
-<span class="g g-Whitespace">    </span><span class="mi">619</span> <span class="c1"># Create the parser.</span>
-<span class="ne">--&gt; </span><span class="mi">620</span> <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">622</span> <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">623</span>     <span class="k">return</span> <span class="n">parser</span>
-
-<span class="nn">File ~/anaconda3/envs/jupyterbook/lib/python3.10/site-packages/pandas/io/parsers/readers.py:1620,</span> in <span class="ni">TextFileReader.__init__</span><span class="nt">(self, f, engine, **kwds)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1617</span>     <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
-<span class="g g-Whitespace">   </span><span class="mi">1619</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="p">:</span> <span class="n">IOHandles</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="ne">-&gt; </span><span class="mi">1620</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
-
-<span class="nn">File ~/anaconda3/envs/jupyterbook/lib/python3.10/site-packages/pandas/io/parsers/readers.py:1880,</span> in <span class="ni">TextFileReader._make_engine</span><span class="nt">(self, f, engine)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1878</span>     <span class="k">if</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">mode</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1879</span>         <span class="n">mode</span> <span class="o">+=</span> <span class="s2">&quot;b&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">1880</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="o">=</span> <span class="n">get_handle</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1881</span>     <span class="n">f</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1882</span>     <span class="n">mode</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1883</span>     <span class="n">encoding</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1884</span>     <span class="n">compression</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;compression&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1885</span>     <span class="n">memory_map</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;memory_map&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1886</span>     <span class="n">is_text</span><span class="o">=</span><span class="n">is_text</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1887</span>     <span class="n">errors</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding_errors&quot;</span><span class="p">,</span> <span class="s2">&quot;strict&quot;</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1888</span>     <span class="n">storage_options</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;storage_options&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1889</span> <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1890</span> <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
-<span class="g g-Whitespace">   </span><span class="mi">1891</span> <span class="n">f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="o">.</span><span class="n">handle</span>
-
-<span class="nn">File ~/anaconda3/envs/jupyterbook/lib/python3.10/site-packages/pandas/io/common.py:873,</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
-<span class="g g-Whitespace">    </span><span class="mi">868</span> <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">869</span>     <span class="c1"># Check whether the filename is to be opened in binary mode.</span>
-<span class="g g-Whitespace">    </span><span class="mi">870</span>     <span class="c1"># Binary mode does not support &#39;encoding&#39; and &#39;newline&#39;.</span>
-<span class="g g-Whitespace">    </span><span class="mi">871</span>     <span class="k">if</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span> <span class="ow">and</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">872</span>         <span class="c1"># Encoding</span>
-<span class="ne">--&gt; </span><span class="mi">873</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">874</span>             <span class="n">handle</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">875</span>             <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">876</span>             <span class="n">encoding</span><span class="o">=</span><span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">877</span>             <span class="n">errors</span><span class="o">=</span><span class="n">errors</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">878</span>             <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">879</span>         <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">880</span>     <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">881</span>         <span class="c1"># Binary mode</span>
-<span class="g g-Whitespace">    </span><span class="mi">882</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">)</span>
-
-<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;Schiphol_Emissie_Cleaned.csv&#39;
-</pre></div>
-</div>
-</div>
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>EMISSIEJAAR</th>
+      <th>VLIEGVELD</th>
+      <th>VLIEGVELD_CODE</th>
+      <th>STOFNAAM</th>
+      <th>STOF_CODE</th>
+      <th>COMPARTIMENT</th>
+      <th>COMPARTIMENT_CODE</th>
+      <th>EMISSIEOORZAAK</th>
+      <th>EMISSIEOORZAAK_CODE</th>
+      <th>EMISSIE (kg)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1990</td>
+      <td>Vliegveld Luchthaven Schiphol</td>
+      <td>220801</td>
+      <td>Anthraceen</td>
+      <td>535</td>
+      <td>Lucht</td>
+      <td>10</td>
+      <td>Vliegverkeer, APU</td>
+      <td>930005</td>
+      <td>0,010647538</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1990</td>
+      <td>Vliegveld Luchthaven Schiphol</td>
+      <td>220801</td>
+      <td>Benzeen</td>
+      <td>515</td>
+      <td>Lucht</td>
+      <td>10</td>
+      <td>Vliegverkeer, APU</td>
+      <td>930005</td>
+      <td>109,275126</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1990</td>
+      <td>Vliegveld Luchthaven Schiphol</td>
+      <td>220801</td>
+      <td>Benzo(a)Pyreen</td>
+      <td>539</td>
+      <td>Lucht</td>
+      <td>10</td>
+      <td>Vliegverkeer, APU</td>
+      <td>930005</td>
+      <td>0,003642579</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1990</td>
+      <td>Vliegveld Luchthaven Schiphol</td>
+      <td>220801</td>
+      <td>Benzo(b)Fluorantheen</td>
+      <td>540</td>
+      <td>Lucht</td>
+      <td>10</td>
+      <td>Vliegverkeer, APU</td>
+      <td>930005</td>
+      <td>0,007285158</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1990</td>
+      <td>Vliegveld Luchthaven Schiphol</td>
+      <td>220801</td>
+      <td>Benzo(k)Fluorantheen</td>
+      <td>541</td>
+      <td>Lucht</td>
+      <td>10</td>
+      <td>Vliegverkeer, APU</td>
+      <td>930005</td>
+      <td>0,001905349</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2955</th>
+      <td>2022</td>
+      <td>Vliegveld Luchthaven Schiphol</td>
+      <td>220801</td>
+      <td>Loodverb. (als Pb)</td>
+      <td>111</td>
+      <td>Lucht</td>
+      <td>10</td>
+      <td>Vliegverkeer, Remslijtage</td>
+      <td>930009</td>
+      <td>2,177753808</td>
+    </tr>
+    <tr>
+      <th>2956</th>
+      <td>2022</td>
+      <td>Vliegveld Luchthaven Schiphol</td>
+      <td>220801</td>
+      <td>Nikkelverb. (als Ni)</td>
+      <td>114</td>
+      <td>Lucht</td>
+      <td>10</td>
+      <td>Vliegverkeer, Remslijtage</td>
+      <td>930009</td>
+      <td>5,008833758</td>
+    </tr>
+    <tr>
+      <th>2957</th>
+      <td>2022</td>
+      <td>Vliegveld Luchthaven Schiphol</td>
+      <td>220801</td>
+      <td>TSP (Totaal stof)</td>
+      <td>999</td>
+      <td>Lucht</td>
+      <td>10</td>
+      <td>Vliegverkeer, Remslijtage</td>
+      <td>930009</td>
+      <td>5444,384519</td>
+    </tr>
+    <tr>
+      <th>2958</th>
+      <td>2022</td>
+      <td>Vliegveld Luchthaven Schiphol</td>
+      <td>220801</td>
+      <td>Zinkverb. (als Zn)</td>
+      <td>120</td>
+      <td>Lucht</td>
+      <td>10</td>
+      <td>Vliegverkeer, Remslijtage</td>
+      <td>930009</td>
+      <td>81,66576779</td>
+    </tr>
+    <tr>
+      <th>2959</th>
+      <td>2022</td>
+      <td>Vliegveld Luchthaven Schiphol</td>
+      <td>220801</td>
+      <td>Zwavel</td>
+      <td>140</td>
+      <td>Lucht</td>
+      <td>10</td>
+      <td>Vliegverkeer, Remslijtage</td>
+      <td>930009</td>
+      <td>54,44384519</td>
+    </tr>
+  </tbody>
+</table>
+<p>2960 rows × 10 columns</p>
+</div></div></div>
 </div>
 </section>
 </section>
@@ -1547,11 +1660,11 @@ are the variables in there) and also explain how you preprocess the data.</p>
       </div>
     </a>
     <a class="right-next"
-       href="../docs/notebook.html"
+       href="../docs/reflection.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Dit is een test</p>
+        <p class="prev-next-title">Reflection</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
