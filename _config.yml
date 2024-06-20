@@ -11,7 +11,6 @@ html:
   favicon: static/images/icon.ico
   use_repository_button: true
   use_issues_button: true
-  extra_navbar: _templates/custom_header.html
 
 # Force re-execution of notebooks on each build.
 execute:
@@ -35,6 +34,11 @@ launch_buttons:
   jupyterhub_url: ""
 
 sphinx:
+  html_context:
+    default_mode: 'light'
+  html_static_path: 'static'
+  html_css_files:
+    -css/custom.css
   extra_extensions:
     - "IPython.sphinxext.ipython_console_highlighting"
   config:
