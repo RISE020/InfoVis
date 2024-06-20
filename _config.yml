@@ -11,6 +11,7 @@ html:
   favicon: static/images/icon.ico
   use_repository_button: true
   use_issues_button: true
+  extra_navbar: _templates/custom_header.html
 
 # Force re-execution of notebooks on each build.
 execute:
